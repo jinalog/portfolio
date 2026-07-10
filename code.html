@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>유진아 | System Software Engineer</title>
+    
+    <!-- Fonts -->
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS (for styling) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            900: '#0B1F3A', // Deep Navy (Main Background)
+                            800: '#132A4A', // Slightly lighter for cards
+                            700: '#1D3B61', // Borders/Hover
+                        },
+                        gray: {
+                            300: '#D1D5DB', // Light Gray text
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Pretendard Variable"', 'Pretendard', 'sans-serif'],
+                        mono: ['"JetBrains Mono"', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #0B1F3A;
+            color: #F9FAFB;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+
+        ::selection {
+            background-color: #3B82F6;
+            color: white;
+        }
+        
+        /* 1. Scroll Fade-in Animation */
+        .scroll-animate {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        
+        .scroll-animate.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* 2. Modal Popup Animation */
+        #resume-modal {
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        #resume-modal.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        #resume-modal .modal-content {
+            transform: scale(0.95) translateY(20px);
+            transition: transform 0.3s ease;
+        }
+
+        #resume-modal.show .modal-content {
+            transform: scale(1) translateY(0);
+        }
+
+        .delay-100 { transition-delay: 100ms; }
+        .delay-200 { transition-delay: 200ms; }
+        .delay-300 { transition-delay: 300ms; }
+    </style>
+</head>
+<body class="font-sans leading-relaxed text-gray-300">
+
+    <!-- Navigation -->
+    <header class="fixed top-0 w-full bg-navy-900/90 backdrop-blur-sm border-b border-navy-700 z-50">
+        <div class="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-xl font-bold tracking-tight text-white">YJA.</div>
+            <nav class="hidden md:flex space-x-8 text-sm font-medium">
+                <a href="#about" class="hover:text-white transition-colors">About</a>
+                <a href="#skills" class="hover:text-white transition-colors">Core Skills</a>
+                <a href="#projects" class="hover:text-white transition-colors">Featured Projects</a>
+                <a href="#contact" class="hover:text-white transition-colors">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="pt-20">
+        <!-- 1. Hero Section -->
+        <section class="max-w-5xl mx-auto px-6 py-32 md:py-48 flex flex-col justify-center min-h-[80vh]">
+            <div class="space-y-6 scroll-animate is-visible">
+                <span class="font-mono text-sm tracking-wider text-blue-400">System Software Engineer</span>
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-white break-keep">
+                    C/Linux 기반 시스템 개발 경험으로,<br>
+                    안정적인 동작을 설계하는<br>
+                    Software Engineer
+                </h1>
+                <p class="text-lg md:text-xl max-w-3xl text-gray-300 mt-6 leading-relaxed break-keep delay-100 scroll-animate is-visible">
+                    대규모 서비스 운영 경험을 바탕으로 <span class="font-mono text-white">Embedded Software</span> 영역까지 확장하고 있습니다.
+                </p>
+                <div class="pt-8 delay-200 scroll-animate is-visible">
+                    <a href="#skills" class="inline-block px-8 py-4 bg-white text-navy-900 font-bold rounded hover:bg-gray-200 transition-colors">
+                        경력 확인하기
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. About Me Section -->
+        <section id="about" class="bg-navy-800 py-24 border-y border-navy-700">
+            <div class="max-w-5xl mx-auto px-6">
+                <h2 class="text-3xl font-bold text-white mb-12 flex items-center scroll-animate">
+                    <span class="w-8 h-[2px] bg-blue-500 mr-4"></span>
+                    About
+                </h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-[148px_minmax(0,1fr)] gap-8 md:gap-12 items-start">
+                    <!-- 소개 문구 왼쪽 상단에 고정되는 프로필 이미지 -->
+                    <div class="w-[148px] h-[122px] mx-auto md:mx-0 bg-navy-900 rounded-2xl border border-navy-700 shadow-xl flex items-center justify-center flex-shrink-0 scroll-animate">
+                        <span class="text-6xl leading-none">👩🏻‍💻</span>
+                    </div>
+
+                    <div class="min-w-0 scroll-animate delay-100">
+                        <p class="text-2xl text-white font-medium mb-6 break-keep leading-relaxed">
+                            "동작하는 코드를 넘어,<br>안정적으로 운영되는 시스템을 만듭니다."
+                        </p>
+                        <p class="text-gray-300 mb-4 break-keep">
+                            지난 6년간 Linux 기반 광고 플랫폼 및 통신 시스템을 개발하며 대규모 트래픽을 다뤘습니다. 운영 환경에서 발생하는 예기치 못한 문제들을 분석하고, 성능과 안정성을 우선으로 시스템 구조를 개선해 왔습니다.
+                        </p>
+                        <p class="text-gray-300 mb-8 break-keep">
+                            이제 서버의 뼈대를 다지던 경험을 바탕으로, 하드웨어의 심장을 제어하는 임베디드 영역으로 저의 무대를 넓혀가고 있습니다.
+                        </p>
+                        
+                        <div class="bg-navy-900 p-6 rounded-lg border border-navy-700 font-mono text-sm text-gray-400 shadow-inner inline-block w-full overflow-x-auto">
+                            <code>
+                                <span class="text-blue-400">const</span> <span class="text-white">engineer</span> = {<br>
+                                &nbsp;&nbsp;name: <span class="text-green-400">'유진아'</span>,<br>
+                                &nbsp;&nbsp;role: <span class="text-green-400">'System Software Engineer'</span>,<br>
+                                &nbsp;&nbsp;focus: [<span class="text-green-400">'Stability'</span>, <span class="text-green-400">'Performance'</span>],<br>
+                                &nbsp;&nbsp;transition: <span class="text-blue-400">function</span>() {<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-purple-400">return</span> <span class="text-green-400">'Linux Server -&gt; Embedded OS'</span>;<br>
+                                &nbsp;&nbsp;}<br>
+                                };
+                            </code>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Core Skills -->
+        <section id="skills" class="max-w-5xl mx-auto px-6 py-24">
+            <h2 class="text-3xl font-bold text-white mb-12 flex items-center scroll-animate">
+                <span class="w-8 h-[2px] bg-blue-500 mr-4"></span>
+                Core Skills
+            </h2>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Card 1 -->
+                <div class="flex flex-col bg-navy-800 p-8 rounded-lg border border-navy-700 hover:border-blue-500 transition-colors group scroll-animate delay-100">
+                    <div class="flex-grow">
+                        <h3 class="text-xl font-bold text-white mb-4 group-hover:text-blue-400 transition-colors">대규모 트래픽 장애 분석</h3>
+                        <p class="text-gray-300 mb-8 text-sm leading-relaxed break-keep">
+                            실시간 서비스에서 발생하는 Timeout, Bottleneck 및 네트워크 지연 원인을 로그와 모니터링 지표를 기반으로 분석하고 안정화합니다.
+                        </p>
+                    </div>
+                    <div class="flex flex-wrap gap-2 font-mono text-xs mt-auto">
+                        <span class="bg-navy-900 px-3 py-1 rounded text-blue-300">Troubleshooting</span>
+                        <span class="bg-navy-900 px-3 py-1 rounded text-blue-300">Grafana</span>
+                        <span class="bg-navy-900 px-3 py-1 rounded text-blue-300">Prometheus</span>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="flex flex-col bg-navy-800 p-8 rounded-lg border border-navy-700 hover:border-blue-500 transition-colors group scroll-animate delay-200">
+                    <div class="flex-grow">
+                        <h3 class="text-xl font-bold text-white mb-4 group-hover:text-blue-400 transition-colors">OS 하위 레벨 이해도</h3>
+                        <p class="text-gray-300 mb-8 text-sm leading-relaxed break-keep">
+                            Process, Thread, Socket 통신 등 Linux 시스템의 동작 원리를 이해하고 C 기반 시스템 서버를 개발합니다.
+                        </p>
+                    </div>
+                    <div class="flex flex-wrap gap-2 font-mono text-xs mt-auto">
+                        <span class="bg-navy-900 px-3 py-1 rounded text-blue-300">C</span>
+                        <span class="bg-navy-900 px-3 py-1 rounded text-blue-300">Linux</span>
+                        <span class="bg-navy-900 px-3 py-1 rounded text-blue-300">TCP/IP</span>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="flex flex-col bg-navy-800 p-8 rounded-lg border border-navy-700 hover:border-blue-500 transition-colors group scroll-animate delay-100">
+                    <div class="flex-grow">
+                        <h3 class="text-xl font-bold text-white mb-4 group-hover:text-blue-400 transition-colors">성능 최적화 및 분산 아키텍처</h3>
+                        <p class="text-gray-300 mb-8 text-sm leading-relaxed break-keep">
+                            네트워크 I/O와 SQL 병목을 분석하고 Redis, Kafka를 활용해 대규모 트래픽 처리 구조를 설계합니다.
+                        </p>
+                    </div>
+                    <div class="flex flex-wrap gap-2 font-mono text-xs mt-auto">
+                        <span class="bg-navy-900 px-3 py-1 rounded text-blue-300">Performance Tuning</span>
+                        <span class="bg-navy-900 px-3 py-1 rounded text-blue-300">SQL Tuning</span>
+                        <span class="bg-navy-900 px-3 py-1 rounded text-blue-300">Redis / Kafka</span>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="flex flex-col bg-navy-800 p-8 rounded-lg border border-navy-700 hover:border-blue-500 transition-colors group scroll-animate delay-200">
+                    <div class="flex-grow">
+                        <h3 class="text-xl font-bold text-white mb-4 group-hover:text-blue-400 transition-colors">인프라 및 운영 자동화</h3>
+                        <p class="text-gray-300 mb-8 text-sm leading-relaxed break-keep">
+                            IDC와 AWS 환경에서 EC2·S3 기반 서비스를 구축·운영하고, MediaTailor 연동과 CloudWatch 모니터링, Jenkins·Git/Bitbucket 기반 CI/CD, Jira 협업 및 Python·Shell Script 자동화를 수행합니다.
+                        </p>
+                    </div>
+                    <div class="flex flex-wrap gap-2 font-mono text-xs mt-auto">
+                        <span class="bg-navy-900 px-3 py-1 rounded text-blue-300">AWS / IDC</span>
+                        <span class="bg-navy-900 px-3 py-1 rounded text-blue-300">EC2</span>
+                        <span class="bg-navy-900 px-3 py-1 rounded text-blue-300">S3</span>
+                        <span class="bg-navy-900 px-3 py-1 rounded text-blue-300">MediaTailor</span>
+                        <span class="bg-navy-900 px-3 py-1 rounded text-blue-300">CloudWatch</span>
+                        <span class="bg-navy-900 px-3 py-1 rounded text-blue-300">Jenkins</span>
+                        <span class="bg-navy-900 px-3 py-1 rounded text-blue-300">Git / Bitbucket</span>
+                        <span class="bg-navy-900 px-3 py-1 rounded text-blue-300">Jira</span>
+                        <span class="bg-navy-900 px-3 py-1 rounded text-blue-300">Python / Shell</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Featured Projects -->
+        <section id="projects" class="bg-navy-800 py-24 border-y border-navy-700">
+            <div class="max-w-5xl mx-auto px-6">
+                <h2 class="text-3xl font-bold text-white mb-12 flex items-center scroll-animate">
+                    <span class="w-8 h-[2px] bg-blue-500 mr-4"></span>
+                    Featured Projects
+                </h2>
+
+                <div class="space-y-10">
+                    <!-- Featured Project 1 -->
+                    <article class="bg-navy-900 rounded-xl border border-navy-700 hover:border-blue-500 transition-colors overflow-hidden scroll-animate delay-100">
+                        <div class="p-8 md:p-10 border-b border-navy-700">
+                            <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-5">
+                                <div class="flex-grow">
+                                    <h3 class="text-3xl md:text-4xl font-bold leading-tight text-white mb-3 break-keep">
+                                        대규모 트래픽 광고 서버 부하 테스트 및 성능 개선
+                                    </h3>
+                                    <p class="font-mono text-sm text-blue-400 mb-4">KT 나스미디어</p>
+                                    <p class="text-gray-300 break-keep">
+                                        실시간 광고 처리 최적화 및 안정성 검증
+                                    </p>
+                                </div>
+                                <div class="flex flex-wrap gap-2 font-mono text-xs md:max-w-xs md:justify-end">
+                                    <span class="bg-navy-800 px-3 py-1.5 rounded text-blue-300">C/Linux</span>
+                                    <span class="bg-navy-800 px-3 py-1.5 rounded text-blue-300">HTTP/epoll</span>
+                                    <span class="bg-navy-800 px-3 py-1.5 rounded text-blue-300">k6 / hey</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="grid lg:grid-cols-3 gap-px bg-navy-700">
+                            <section class="bg-navy-900 p-8">
+                                <h4 class="font-mono text-sm font-bold text-blue-400 mb-4">Problem &amp; Goal</h4>
+                                <p class="text-sm text-gray-300 leading-relaxed break-keep">
+                                    대규모 실시간 트래픽 환경에서 서버의 병목 구간을 파악하고, 운영 환경에 배포하기 전 최대 수용 가능한 성능 지표를 확보해야 했습니다.
+                                </p>
+                            </section>
+
+                            <section class="bg-navy-900 p-8">
+                                <h4 class="font-mono text-sm font-bold text-blue-400 mb-4">Implementation</h4>
+                                <ul class="list-disc list-outside space-y-3 text-sm text-gray-300 leading-relaxed ml-4 break-keep">
+                                    <li>k6와 hey를 활용해 최대 490만 건 요청, 수만 RPS 규모의 스트레스 테스트(Stress Test) 시나리오 설계 및 수행</li>
+                                    <li>Socket 통신 단계의 병목을 분석하고, HTTP Keep-Alive 설정 및 epoll 기반의 네트워크 I/O 구조 최적화</li>
+                                </ul>
+                            </section>
+
+                            <section class="bg-navy-900 p-8">
+                                <h4 class="font-mono text-sm font-bold text-blue-400 mb-4">Result</h4>
+                                <p class="text-sm text-gray-300 leading-relaxed break-keep">
+                                    측정 API의 경우 22,000 RPS 환경에서 평균 응답속도 66~210ms를 유지하며 무결점(Error 0) 처리 성능을 확인했습니다. 광고 요청(AdTag) 처리 시에는 목표 트래픽을 상회하는 최대 82,000 RPS의 극단적 부하 상황에서도 490만 건 이상의 요청을 에러 없이(100% 성공) 소화해내며 대규모 운영 서버 배포의 신뢰성을 완벽히 입증했습니다.
+                                </p>
+                            </section>
+                        </div>
+                    </article>
+
+                    <!-- Featured Project 2 -->
+                    <article class="bg-navy-900 rounded-xl border border-navy-700 hover:border-blue-500 transition-colors overflow-hidden scroll-animate delay-200">
+                        <div class="p-8 md:p-10 border-b border-navy-700">
+                            <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-5">
+                                <div class="flex-grow">
+                                    <h3 class="text-3xl md:text-4xl font-bold leading-tight text-white mb-3 break-keep">
+                                        OTT 플랫폼 실시간 광고 연동 시스템 개발
+                                    </h3>
+                                    <p class="font-mono text-sm text-blue-400 mb-4">KT 나스미디어</p>
+                                    <p class="text-gray-300 break-keep">
+                                        쿠팡플레이 LIVE / VOD VAST3 기반 광고 연동
+                                    </p>
+                                </div>
+                                <div class="flex flex-wrap gap-2 font-mono text-xs md:max-w-xs md:justify-end">
+                                    <span class="bg-navy-800 px-3 py-1.5 rounded text-blue-300">C/Linux</span>
+                                    <span class="bg-navy-800 px-3 py-1.5 rounded text-blue-300">VAST3</span>
+                                    <span class="bg-navy-800 px-3 py-1.5 rounded text-blue-300">MediaTailor</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="grid lg:grid-cols-2 gap-px bg-navy-700">
+                            <section class="bg-navy-900 p-8">
+                                <h4 class="font-mono text-sm font-bold text-blue-400 mb-4">Problem &amp; Goal</h4>
+                                <p class="text-sm text-gray-300 leading-relaxed break-keep">
+                                    쿠팡플레이 등 대형 OTT의 스트리밍 환경에서 LIVE와 VOD 특성에 맞는 정교한 광고 송출 제어 및 예외 상황(Timeout 등) 처리가 필요했습니다.
+                                </p>
+                            </section>
+
+                            <section class="bg-navy-900 p-8">
+                                <h4 class="font-mono text-sm font-bold text-blue-400 mb-4">Implementation</h4>
+                                <ul class="list-disc list-outside space-y-3 text-sm text-gray-300 leading-relaxed ml-4 break-keep">
+                                    <li>C/Linux 환경에서 VAST3 프로토콜 분석 및 AWS MediaTailor 연동 규격 설계</li>
+                                    <li>LIVE 스트리밍과 VOD의 서로 다른 광고 노출 제어(Capping) 로직 및 실시간 요청/응답 파이프라인 개발</li>
+                                    <li>네트워크 지연에 대비한 Timeout 제어 및 정확한 과금을 위한 Reporting 로직 구현</li>
+                                </ul>
+                            </section>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. CTA / Contact Section -->
+        <section id="contact" class="bg-navy-900 py-32 text-center border-t border-navy-700 scroll-animate">
+            <div class="max-w-3xl mx-auto px-6">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
+                    안정적인 시스템을 함께 구축할<br>
+                    준비가 되었습니다.
+                </h2>
+                <p class="text-gray-400 mb-10 text-lg">
+                    상세한 프로젝트 경험과 이력은 아래 버튼을 통해 확인하실 수 있습니다.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <!-- 모달을 띄우는 버튼 -->
+                    <button id="resume-btn" class="px-8 py-4 bg-blue-600 text-white font-bold rounded hover:bg-blue-700 transition-colors shadow-lg">
+                        이력서 다운로드
+                    </button>
+                    <a href="https://github.com/jinalog" target="_blank" rel="noopener noreferrer" class="inline-block px-8 py-4 bg-navy-800 border border-navy-700 text-white font-bold rounded hover:border-gray-400 transition-colors">
+                        GitHub 방문하기
+                    </a>
+                </div>
+                <div class="mt-12 font-mono text-gray-500 text-sm">
+                    ryujina0722@gmail.com
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-navy-900 py-8">
+        <div class="max-w-5xl mx-auto px-6 flex justify-between items-center text-sm font-mono text-gray-500">
+            <p>&copy; 2026 Yu jin a. All rights reserved.</p>
+            <p>System Software Engineer</p>
+        </div>
+    </footer>
+
+    <!-- 상호작용(체크리스트)을 위한 커스텀 모달 팝업 -->
+    <div id="resume-modal" class="fixed inset-0 z-[100] flex items-center justify-center bg-navy-900/80 backdrop-blur-sm">
+        <div class="modal-content bg-navy-800 border border-navy-700 p-8 rounded-lg max-w-sm w-full mx-4 shadow-2xl text-center relative">
+            <div class="w-16 h-16 bg-blue-900/50 rounded-full flex items-center justify-center mx-auto mb-4 text-blue-400">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2">이력서 준비 중</h3>
+            <p class="text-gray-400 text-sm mb-6 break-keep">
+                현재 상세 이력서 PDF 문서를 업데이트하고 있습니다. 완료되는 대로 업로드될 예정입니다.
+            </p>
+            <button id="close-modal-btn" class="w-full px-4 py-2 bg-navy-700 hover:bg-navy-600 text-white font-medium rounded transition-colors">
+                확인
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // 1. Scroll Fade-in Animation (Intersection Observer)
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.15
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target); // 한 번 보이면 애니메이션 유지
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.scroll-animate').forEach(el => {
+            observer.observe(el);
+        });
+
+        // 2. Modal Popup Interaction
+        const resumeBtn = document.getElementById('resume-btn');
+        const resumeModal = document.getElementById('resume-modal');
+        const closeModalBtn = document.getElementById('close-modal-btn');
+
+        // 열기
+        resumeBtn.addEventListener('click', () => {
+            resumeModal.classList.add('show');
+        });
+
+        // 닫기 (버튼 클릭)
+        closeModalBtn.addEventListener('click', () => {
+            resumeModal.classList.remove('show');
+        });
+
+        // 닫기 (배경 클릭)
+        resumeModal.addEventListener('click', (e) => {
+            if (e.target === resumeModal) {
+                resumeModal.classList.remove('show');
+            }
+        });
+    </script>
+</body>
+</html>
