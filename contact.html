@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Yu Jin A</title>
+    <link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            900: '#0B1F3A',
+                            800: '#132A4A',
+                            700: '#1D3B61',
+                        },
+                        gray: {
+                            300: '#D1D5DB',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-navy-900 text-gray-300 font-sans">
+    <header class="border-b border-navy-700 bg-navy-900/90 backdrop-blur-sm">
+        <div class="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-xl font-bold text-white">Home</a>
+            <nav class="flex gap-6 text-sm">
+                <a href="home.html" class="hover:text-white">About</a>
+                <a href="skills.html" class="hover:text-white">Skills</a>
+                <a href="projects.html" class="hover:text-white">Projects</a>
+                <a href="contact.html" class="hover:text-white">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="max-w-5xl mx-auto px-6 py-16">
+        <section class="bg-navy-800 border border-navy-700 rounded-xl p-10 text-center">
+            <p class="text-sm font-mono text-blue-400 mb-3">Contact</p>
+            <h1 class="text-3xl md:text-4xl font-bold text-white mb-6">함께 성장할 수 있는 기회를 기다립니다.</h1>
+            <p class="text-lg mb-8 max-w-2xl mx-auto">
+                시스템 안정성, 성능 최적화, 임베디드 개발까지 폭넓게 함께 고민할 수 있는 프로젝트에 참여하고 싶습니다.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4 mb-8">
+                <a href="mailto:ryujina0722@gmail.com" class="px-6 py-3 bg-blue-600 text-white rounded hover:bg-blue-700 transition">이메일 보내기</a>
+                <a href="https://github.com/jinalog" target="_blank" rel="noopener noreferrer" class="px-6 py-3 border border-navy-700 rounded hover:border-gray-400 transition">GitHub 방문</a>
+            </div>
+            <button id="resume-btn" class="px-6 py-3 bg-navy-900 border border-navy-700 rounded hover:border-blue-400 transition">이력서 확인</button>
+        </section>
+    </main>
+
+    <div id="resume-modal" class="fixed inset-0 hidden flex items-center justify-center bg-navy-900/80">
+        <div class="bg-navy-800 border border-navy-700 rounded-xl p-8 max-w-sm w-full mx-4 text-center">
+            <h2 class="text-xl font-bold text-white mb-3">이력서 준비 중</h2>
+            <p class="text-gray-400 mb-6">상세 이력서는 현재 업데이트 중입니다. 곧 공개하겠습니다.</p>
+            <button id="close-modal-btn" class="px-4 py-2 bg-blue-600 text-white rounded">닫기</button>
+        </div>
+    </div>
+
+    <footer class="border-t border-navy-700 py-8 mt-12">
+        <div class="max-w-5xl mx-auto px-6 text-sm text-gray-500">
+            © 2026 Yu jin a. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        const btn = document.getElementById('resume-btn');
+        const modal = document.getElementById('resume-modal');
+        const closeBtn = document.getElementById('close-modal-btn');
+
+        btn.addEventListener('click', () => modal.classList.remove('hidden'));
+        closeBtn.addEventListener('click', () => modal.classList.add('hidden'));
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) modal.classList.add('hidden');
+        });
+    </script>
+</body>
+</html>
