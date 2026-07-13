@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | Yu Jin A</title>
+    <link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            900: '#0B1F3A',
+                            800: '#132A4A',
+                            700: '#1D3B61',
+                        },
+                        gray: {
+                            300: '#D1D5DB',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Pretendard Variable"', 'Pretendard', 'sans-serif'],
+                        mono: ['"JetBrains Mono"', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-navy-900 text-gray-300 font-sans">
+    <header class="border-b border-navy-700 bg-navy-900/90 backdrop-blur-sm">
+        <div class="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-xl font-bold text-white">Home</a>
+            <nav class="flex gap-6 text-sm">
+                    <a href="home.html" class="hover:text-white">About</a>
+                <a href="skills.html" class="hover:text-white">Skills</a>
+                <a href="projects.html" class="hover:text-white">Projects</a>
+                <a href="contact.html" class="hover:text-white">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="max-w-5xl mx-auto px-6 py-20">
+        <section class="py-16">
+            <span class="text-sm font-mono text-blue-400 mb-4 inline-block">System Software Engineer</span>
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
+                C/Linux 기반 시스템 개발 경험으로,<br>
+                안정적인 동작을 설계하는<br>
+                Software Engineer
+            </h1>
+            <p class="text-lg md:text-xl max-w-3xl text-gray-300 leading-relaxed mb-10">
+                대규모 서비스 운영 경험을 바탕으로 Embedded Software 영역까지 확장하고 있습니다.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4">
+                <a href="skills.html" class="inline-flex items-center justify-center px-8 py-4 bg-white text-navy-900 font-bold rounded hover:bg-gray-200 transition">
+                    경력 확인하기
+                </a>
+                <a href="contact.html" class="inline-flex items-center justify-center px-8 py-4 border border-navy-700 rounded hover:border-blue-400 transition">
+                    연락하기
+                </a>
+            </div>
+        </section>
+
+        <section class="bg-navy-800 border border-navy-700 rounded-3xl p-8 md:p-10">
+            <div class="flex flex-col lg:flex-row gap-8">
+                <div class="w-24 h-24 rounded-3xl bg-navy-900 border border-navy-700 flex items-center justify-center">
+                    <span class="text-5xl">👩🏻‍💻</span>
+                </div>
+                <div class="space-y-6">
+                    <div>
+                        <h2 class="text-2xl font-bold text-white mb-4">About</h2>
+                        <p class="text-xl text-white font-semibold leading-relaxed">
+                            "동작하는 코드를 넘어, 안정적으로 운영되는 시스템을 만듭니다."
+                        </p>
+                    </div>
+                    <div class="space-y-4 text-gray-300">
+                        <p>
+                            지난 6년간 Linux 기반 광고 플랫폼 및 통신 시스템을 개발하며 대규모 트래픽을 다뤘습니다. 운영 환경에서 발생하는 예기치 못한 문제들을 분석하고, 성능과 안정성을 우선으로 시스템 구조를 개선해 왔습니다.
+                        </p>
+                        <p>
+                            이제 서버의 뼈대를 다지던 경험을 바탕으로, 하드웨어의 심장을 제어하는 임베디드 영역으로 저의 무대를 넓혀가고 있습니다.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-12 bg-navy-900 border border-navy-700 rounded-3xl p-6 font-mono text-sm text-gray-300">
+                <code>
+                    <span class="text-blue-400">const</span> <span class="text-white">engineer</span> = {<br>
+                    &nbsp;&nbsp;name: <span class="text-green-400">'유진아'</span>,<br>
+                    &nbsp;&nbsp;role: <span class="text-green-400">'System Software Engineer'</span>,<br>
+                    &nbsp;&nbsp;focus: [<span class="text-green-400">'Stability'</span>, <span class="text-green-400">'Performance'</span>],<br>
+                    &nbsp;&nbsp;transition: <span class="text-blue-400">function</span>() {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-purple-400">return</span> <span class="text-green-400">'Linux Server -> Embedded OS'</span>;<br>
+                    &nbsp;&nbsp;}<br>
+                    };
+                </code>
+            </div>
+        </section>
+    </main>
+
+    <footer class="border-t border-navy-700 py-8 mt-12">
+        <div class="max-w-5xl mx-auto px-6 text-sm text-gray-500">
+            © 2026 Yu jin a. All rights reserved.
+        </div>
+    </footer>
+</body>
+</html>
