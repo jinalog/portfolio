@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects | Yu Jin A</title>
+    <link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            900: '#0B1F3A',
+                            800: '#132A4A',
+                            700: '#1D3B61',
+                        },
+                        gray: {
+                            300: '#D1D5DB',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-navy-900 text-gray-300 font-sans">
+    <header class="border-b border-navy-700 bg-navy-900/90 backdrop-blur-sm">
+        <div class="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-xl font-bold text-white">Home</a>
+            <nav class="flex gap-6 text-sm">
+                    <a href="home.html" class="hover:text-white">About</a>
+                <a href="skills.html" class="hover:text-white">Skills</a>
+                <a href="projects.html" class="hover:text-white">Projects</a>
+                <a href="contact.html" class="hover:text-white">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="max-w-5xl mx-auto px-6 py-16">
+        <section class="mb-12">
+            <p class="text-sm font-mono text-blue-400 mb-2">Projects</p>
+            <h1 class="text-3xl md:text-4xl font-bold text-white">실제 업무에서 검증된 프로젝트 경험</h1>
+        </section>
+
+        <div class="space-y-10">
+            <article class="bg-navy-800 border border-navy-700 rounded-3xl overflow-hidden">
+                <div class="p-8 border-b border-navy-700 md:p-10">
+                    <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-6">
+                        <div class="space-y-4">
+                            <h2 class="text-3xl md:text-4xl font-bold text-white">대규모 트래픽 광고 서버 부하 테스트 및 성능 개선</h2>
+                            <p class="text-blue-400 font-mono text-sm">KT 나스미디어</p>
+                            <p class="text-gray-300 text-sm md:text-base max-w-3xl">
+                                실시간 광고 처리 최적화 및 안정성 검증을 통해 서비스 운영의 신뢰성을 높였습니다.
+                            </p>
+                        </div>
+                        <div class="flex flex-wrap gap-2 justify-start md:justify-end">
+                            <span class="bg-navy-900 px-3 py-1.5 rounded text-blue-300 text-xs font-medium">C/Linux</span>
+                            <span class="bg-navy-900 px-3 py-1.5 rounded text-blue-300 text-xs font-medium">HTTP/epoll</span>
+                            <span class="bg-navy-900 px-3 py-1.5 rounded text-blue-300 text-xs font-medium">k6 / hey</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid gap-px bg-navy-700 lg:grid-cols-3">
+                    <section class="bg-navy-900 p-8">
+                        <h3 class="text-sm font-mono text-blue-400 mb-4">Problem &amp; Goal</h3>
+                        <p class="text-sm text-gray-300 leading-relaxed">
+                            대규모 실시간 트래픽 환경에서 서버의 병목 구간을 파악하고, 운영 환경에 배포하기 전 최대 수용 가능한 성능 지표를 확보해야 했습니다.
+                        </p>
+                    </section>
+                    <section class="bg-navy-900 p-8">
+                        <h3 class="text-sm font-mono text-blue-400 mb-4">Implementation</h3>
+                        <ul class="list-disc list-outside ml-4 space-y-3 text-sm text-gray-300 leading-relaxed">
+                            <li>k6와 hey를 활용해 최대 490만 건 요청, 수만 RPS 규모의 스트레스 테스트 시나리오 설계 및 수행</li>
+                            <li>Socket 통신 단계 병목을 분석하고 HTTP Keep-Alive 설정 및 epoll 기반 네트워크 I/O 최적화</li>
+                        </ul>
+                    </section>
+                    <section class="bg-navy-900 p-8">
+                        <h3 class="text-sm font-mono text-blue-400 mb-4">Result</h3>
+                        <p class="text-sm text-gray-300 leading-relaxed">
+                            측정 API는 22,000 RPS 환경에서 평균 응답속도 66~210ms를 유지했고, 광고 요청은 최대 82,000 RPS 부하에서도 에러 없이 처리되었습니다.
+                        </p>
+                    </section>
+                </div>
+            </article>
+
+            <article class="bg-navy-800 border border-navy-700 rounded-3xl overflow-hidden">
+                <div class="p-8 border-b border-navy-700 md:p-10">
+                    <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-6">
+                        <div class="space-y-4">
+                            <h2 class="text-3xl md:text-4xl font-bold text-white">OTT 플랫폼 실시간 광고 연동 시스템 개발</h2>
+                            <p class="text-blue-400 font-mono text-sm">KT 나스미디어</p>
+                            <p class="text-gray-300 text-sm md:text-base max-w-3xl">
+                                쿠팡플레이 LIVE/VOD 광고 연동을 위한 VAST3 기반 송출 제어 및 예외 처리 로직을 구현했습니다.
+                            </p>
+                        </div>
+                        <div class="flex flex-wrap gap-2 justify-start md:justify-end">
+                            <span class="bg-navy-900 px-3 py-1.5 rounded text-blue-300 text-xs font-medium">C/Linux</span>
+                            <span class="bg-navy-900 px-3 py-1.5 rounded text-blue-300 text-xs font-medium">VAST3</span>
+                            <span class="bg-navy-900 px-3 py-1.5 rounded text-blue-300 text-xs font-medium">MediaTailor</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid gap-px bg-navy-700 lg:grid-cols-2">
+                    <section class="bg-navy-900 p-8">
+                        <h3 class="text-sm font-mono text-blue-400 mb-4">Problem &amp; Goal</h3>
+                        <p class="text-sm text-gray-300 leading-relaxed">
+                            대형 OTT 스트리밍 환경에서 LIVE와 VOD 특성에 맞는 광고 송출 제어 및 Timeout 예외 처리 로직이 필요했습니다.
+                        </p>
+                    </section>
+                    <section class="bg-navy-900 p-8">
+                        <h3 class="text-sm font-mono text-blue-400 mb-4">Implementation</h3>
+                        <ul class="list-disc list-outside ml-4 space-y-3 text-sm text-gray-300 leading-relaxed">
+                            <li>C/Linux 환경에서 VAST3 프로토콜 분석 및 AWS MediaTailor 연동 규격 설계</li>
+                            <li>LIVE 스트리밍과 VOD의 광고 노출 제어 로직 및 실시간 요청/응답 파이프라인 구축</li>
+                            <li>네트워크 지연에 대비한 Timeout 제어 및 과금 정확도를 위한 Reporting 로직 구현</li>
+                        </ul>
+                    </section>
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <footer class="border-t border-navy-700 py-8 mt-12">
+        <div class="max-w-5xl mx-auto px-6 text-sm text-gray-500">
+            © 2026 Yu jin a. All rights reserved.
+        </div>
+    </footer>
+</body>
+</html>
